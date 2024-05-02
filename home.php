@@ -4,8 +4,6 @@ if (!isset($_SESSION['name'])) {
 	header('Location:login.php');
 }
 ?>
-<?php
-?>
 <html>
 <head>
 	<title>Administrator Home Page</title>
@@ -86,36 +84,15 @@ include 'after_header.php';
 			</div>
 			<div class="space"></div>
 			<div class="center">
-				<center><h1 style='color:white'>Update Policy page</h1></center><br>
-				<center><form action='policy.php' method='POST' >
-					<br><br>
-					<textarea style='height:160px; width:600px;' placeholder='Contents' name='full'></textarea><br>
-					<input type='submit' value='Update Contents' name='add'>
-					<?php
-$conn = mysqli_connect("localhost","root","","fieldatc");
-if (!$conn)
-  {
-  die('Could not connect: ' . mysqli_error());
-  }
-
-
-				if (isset($_POST['add'])&&!empty($_POST['full'])) {
-					$full=$_POST['full'];
-					$query=mysqli_query($conn,"UPDATE `contents` SET `full_contents`='$full'  WHERE `id`='17'");
-					if ($query) {
-					 	echo "<b style='color:white;'>Page changed..!</b>";
-					 } 
-					 else if(!$query)
-					 {
-					 	echo "<b style='color:white;'>Page is not changed..!</b>";
-					 }
-						
-					
-				}
-				?>
-				</form>
-				
-			</center>
+				<h4 align='center' style='color:white;'>
+					Welcome to Administrator Panel Click left or right links to change its contents<br>
+					For more information about how to use this Content Management System Contact us:<br>
+					<center><h5 style='color:white;'>
+						Florian Kipeta<br>
+						Email: support@tanzamo.com<br>
+						Phone No: +255-654507180<br>
+					</h5></center>
+				</h4>
 			</div>
 			<div class="space"></div>
 			<div class="right">

@@ -4,8 +4,6 @@ if (!isset($_SESSION['name'])) {
 	header('Location:login.php');
 }
 ?>
-<?php
-?>
 <html>
 <head>
 	<title>Administrator Home Page</title>
@@ -86,12 +84,7 @@ include 'after_header.php';
 			</div>
 			<div class="space"></div>
 			<div class="center">
-				<center><h1 style='color:white'>Update Policy page</h1></center><br>
-				<center><form action='policy.php' method='POST' >
-					<br><br>
-					<textarea style='height:160px; width:600px;' placeholder='Contents' name='full'></textarea><br>
-					<input type='submit' value='Update Contents' name='add'>
-					<?php
+				<?php
 $conn = mysqli_connect("localhost","root","","fieldatc");
 if (!$conn)
   {
@@ -99,23 +92,23 @@ if (!$conn)
   }
 
 
-				if (isset($_POST['add'])&&!empty($_POST['full'])) {
-					$full=$_POST['full'];
-					$query=mysqli_query($conn,"UPDATE `contents` SET `full_contents`='$full'  WHERE `id`='17'");
-					if ($query) {
-					 	echo "<b style='color:white;'>Page changed..!</b>";
-					 } 
-					 else if(!$query)
-					 {
-					 	echo "<b style='color:white;'>Page is not changed..!</b>";
-					 }
-						
-					
-				}
-				?>
-				</form>
-				
-			</center>
+echo "<table align='center' height='auto' width='60%' bgcolor='white' border='1px solid'style='text-align:center;'>
+  	<tr>
+  		<th>ID</th>
+  		<th>NAME</th>
+  		<th>PASSWORD</th>
+  		<th>DELETE</th>
+  	</tr>";
+
+$result = mysqli_query($conn,"SELECT * FROM users");
+while($row = mysqli_fetch_array($result))
+  {
+  	$id = $row['id'];
+  	echo "<tr>"."<td>".$row['id']."</td>"."<td>".$row['name']."</td>"."<td>".$row['password']."</td>"."<td>"."<a href='delete.php?id=".$id."' name='futa'>D</a>"."</td>"."</tr>";
+  }
+echo "</table>";
+mysqli_close($conn);
+?>
 			</div>
 			<div class="space"></div>
 			<div class="right">

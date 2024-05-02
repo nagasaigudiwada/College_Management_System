@@ -1,7 +1,4 @@
-<?php
-require 'connect.php';
-?>
-	<div id="wrapper">
+<div id="wrapper">
 		<div id="header">
 			<div class="box1">
 				<marquee scrollamount="2">
@@ -11,22 +8,10 @@ require 'connect.php';
 			<div class="box2">
 				<table align="center" class="headlinks">
 					<tr>
-						<td><a href="admin_pages/login.php" class="head_links" target="_blank">Admin Login</a></td>
-						<td><a href="#" class="head_links" target="_blank">Webmail</a></td>
+						<td><a href="login.php" class="head_links">Admin Login</a></td>
+						<td><a href="#" class="head_links">Webmail</a></td>
 						<td><a href="#" class="head_links">Contact</a></td>
 					</tr>
 				</table>
 			</div>
 		</div>
-		<div id="logo"></div>
-		<br>
-
-		
-<?php
-include 'slideshow.php';
-?>
-		<p>
-		<?php
-		include 'navigation.php';
-		?>
-		
